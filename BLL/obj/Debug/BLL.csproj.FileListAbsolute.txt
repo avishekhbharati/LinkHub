@@ -1,0 +1,9 @@
+E:\github\linkHub\BLL\bin\Debug\BLL.dll
+E:\github\linkHub\BLL\bin\Debug\BLL.pdb
+E:\github\linkHub\BLL\bin\Debug\BOL.dll
+E:\github\linkHub\BLL\bin\Debug\DAL.dll
+E:\github\linkHub\BLL\bin\Debug\BOL.pdb
+E:\github\linkHub\BLL\bin\Debug\DAL.pdb
+E:\github\linkHub\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\github\linkHub\BLL\obj\Debug\BLL.dll
+E:\github\linkHub\BLL\obj\Debug\BLL.pdb
