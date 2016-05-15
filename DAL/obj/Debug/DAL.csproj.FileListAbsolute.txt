@@ -5,3 +5,5 @@ E:\github\linkHub\DAL\bin\Debug\BOL.pdb
 E:\github\linkHub\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 E:\github\linkHub\DAL\obj\Debug\DAL.dll
 E:\github\linkHub\DAL\obj\Debug\DAL.pdb
+E:\github\linkHub\DAL\bin\Debug\EntityFramework.dll
+E:\github\linkHub\DAL\bin\Debug\EntityFramework.xml

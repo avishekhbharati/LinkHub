@@ -3,3 +3,8 @@ E:\github\linkHub\BOL\bin\Debug\BOL.pdb
 E:\github\linkHub\BOL\obj\Debug\BOL.csprojResolveAssemblyReference.cache
 E:\github\linkHub\BOL\obj\Debug\BOL.dll
 E:\github\linkHub\BOL\obj\Debug\BOL.pdb
+E:\github\linkHub\BOL\bin\Debug\BOL.dll.config
+E:\github\linkHub\BOL\bin\Debug\EntityFramework.dll
+E:\github\linkHub\BOL\bin\Debug\EntityFramework.SqlServer.dll
+E:\github\linkHub\BOL\bin\Debug\EntityFramework.xml
+E:\github\linkHub\BOL\bin\Debug\EntityFramework.SqlServer.xml

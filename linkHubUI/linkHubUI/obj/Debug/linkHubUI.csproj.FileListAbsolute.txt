@@ -20,3 +20,7 @@ E:\github\linkHub\linkHubUI\linkHubUI\bin\System.Web.Mvc.xml
 E:\github\linkHub\linkHubUI\linkHubUI\obj\Debug\linkHubUI.csprojResolveAssemblyReference.cache
 E:\github\linkHub\linkHubUI\linkHubUI\obj\Debug\linkHubUI.dll
 E:\github\linkHub\linkHubUI\linkHubUI\obj\Debug\linkHubUI.pdb
+E:\github\linkHub\linkHubUI\linkHubUI\bin\EntityFramework.dll
+E:\github\linkHub\linkHubUI\linkHubUI\bin\EntityFramework.xml
+E:\github\linkHub\linkHubUI\linkHubUI\bin\EntityFramework.SqlServer.dll
+E:\github\linkHub\linkHubUI\linkHubUI\bin\EntityFramework.SqlServer.xml
