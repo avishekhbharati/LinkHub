@@ -24,3 +24,5 @@ E:\github\linkHub\linkHubUI\linkHubUI\bin\EntityFramework.dll
 E:\github\linkHub\linkHubUI\linkHubUI\bin\EntityFramework.xml
 E:\github\linkHub\linkHubUI\linkHubUI\bin\EntityFramework.SqlServer.dll
 E:\github\linkHub\linkHubUI\linkHubUI\bin\EntityFramework.SqlServer.xml
+E:\github\linkHub\linkHubUI\linkHubUI\bin\DAL.dll
+E:\github\linkHub\linkHubUI\linkHubUI\bin\DAL.pdb

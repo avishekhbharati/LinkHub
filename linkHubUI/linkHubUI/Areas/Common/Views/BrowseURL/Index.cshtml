@@ -1,0 +1,57 @@
+﻿@using BOL
+@model IEnumerable<BOL.tbl_Url>
+
+@{
+    ViewBag.Title = "Index";
+    int index = 1;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            S.No.
+        </th>
+        <th>
+            @Html.ActionLink("UrlTitle", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc"? "Desc":"Asc"), SortBy = "Title" })
+        </th>
+        <th>
+            @Html.ActionLink("Url", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Url" })
+        </th>
+        <th>
+            @Html.ActionLink("UrlDesc", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Desc" })
+        </th>
+
+        <th>
+            @Html.ActionLink("CategoryName", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Category" })
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @index
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrlTitle)
+        </td>
+        <td>
+            <a target="_blank" href=@item.Url>@item.Url</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrlDesc)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_Category.CategoryName)
+        </td>
+
+    </tr>
+    index++;
+}
+
+</table>
