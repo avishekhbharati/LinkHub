@@ -17,41 +17,69 @@
             S.No.
         </th>
         <th>
-            @Html.ActionLink("UrlTitle", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc"? "Desc":"Asc"), SortBy = "Title" })
+            @Html.ActionLink("UrlTitle", "Index", new {SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Title", Page = (ViewBag.CurrentPage).ToString() ?? "1"})
         </th>
         <th>
-            @Html.ActionLink("Url", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Url" })
+            @Html.ActionLink("Url", "Index", new {SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Url", Page = (ViewBag.CurrentPage).ToString() ?? "1"})
         </th>
         <th>
-            @Html.ActionLink("UrlDesc", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Desc" })
+            @Html.ActionLink("UrlDesc", "Index", new {SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Desc", Page = (ViewBag.CurrentPage).ToString() ?? "1"})
         </th>
-
         <th>
-            @Html.ActionLink("CategoryName", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Category" })
+            @Html.ActionLink("CategoryName", "Index", new {SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Category", Page = (ViewBag.CurrentPage).ToString() ?? "1"})
         </th>
     </tr>
+    @{ int sno = ViewBag.CurrentPage == 1 ? 1 : ((ViewBag.CurrentPage)*10) + 1; }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @index
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UrlTitle)
-        </td>
-        <td>
-            <a target="_blank" href=@item.Url>@item.Url</a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UrlDesc)
-        </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.tbl_Category.CategoryName)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @sno
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlTitle)
+            </td>
+            <td>
+                <a target="_blank" href=@item.Url>@item.Url</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlDesc)
+            </td>
 
-    </tr>
-    index++;
-}
+            <td>
+                @Html.DisplayFor(modelItem => item.tbl_Category.CategoryName)
+            </td>
+
+        </tr>
+        sno++;
+    }
 
 </table>
+@{
+    int totalPage = @ViewBag.TotalPages;
+}
+<div>
+<strong>@Html.ActionLink("Prev", "Index", new {SortOrder = (ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Asc" : "Desc")),
+       SortBy = ViewBag.OrderBy ?? "Title",
+       Page = ((ViewBag.CurrentPage == null || ViewBag.CurrentPage == 1) ? "1" : (ViewBag.CurrentPage) - 1).ToString()}, 
+       new {@style = "padding:10px; background-color: #3cb371; margin-left:2px "})
+
+    </strong>
+
+    @for (int i = 1; i <= totalPage; i++)
+    {
+        if (i == (ViewBag.CurrentPage))
+        {
+            <strong >@Html.ActionLink(i.ToString() , "Index", new {SortOrder = (ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Asc" : "Desc")), SortBy = (ViewBag.OrderBy ?? "Title"), Page = i}, new {@style = "padding:10px; background-color: #3cb371; margin-left:2px "})</strong>
+        }
+        else
+        {
+            @Html.ActionLink(i.ToString() , "Index", new {SortOrder = (ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Asc" : "Desc")), SortBy = (ViewBag.OrderBy ?? "Title"), Page = i}, new {@style = "padding:10px; background-color: #d3d3d3; margin-left: 2px"})
+        }
+
+    }
+    <strong>@Html.ActionLink("Next", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Asc" : "Desc")), SortBy = (ViewBag.OrderBy ?? "Title"), Page = ((ViewBag.CurrentPage == null ) ? "2" : ((ViewBag.CurrentPage == totalPage) ? totalPage.ToString() : ViewBag.CurrentPage + 1).ToString()) }, new { @style = "padding:10px; background-color: #3cb371; margin-left:2px " })</strong>
+
+</div>

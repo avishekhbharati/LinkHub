@@ -17,7 +17,7 @@ namespace linkHubUI.Areas.Common.Controllers
         }
 
         // GET: Common/BrowseURL
-        public ActionResult Index(String SortOrder, String SortBy)
+        public ActionResult Index(String SortOrder, String SortBy, string Page)
         {
             ViewBag.SortOrder = SortOrder;
             ViewBag.SortBy = SortBy;
@@ -83,6 +83,11 @@ namespace linkHubUI.Areas.Common.Controllers
                 default:
                     break;
             }
+            ViewBag.TotalPages = Convert.ToInt32(Math.Ceiling(ObjBs.GetAll().Where(x => x.IsApproved == "A").Count() / 10.0));
+            int page = int.Parse(Page ?? "1");
+            ViewBag.CurrentPage = page;
+
+            model = model.Skip((page - 1)*10).Take(10);
             return View(model);
         }
     }
